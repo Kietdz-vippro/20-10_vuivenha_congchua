@@ -75,21 +75,15 @@ body {
         floatText 3s ease-in-out 2s infinite;
 }
 
-/* DÒNG 1 */
-
 .line:nth-child(1) {
     top: 20%;
     animation-delay: 1.5s, 3.5s, 3.5s;
 }
 
-/* DÒNG 2 */
-
 .line:nth-child(2) {
     top: 40%;
     animation-delay: 2.7s, 4.7s, 4.7s;
 }
-
-/* DÒNG 3 */
 
 .line:nth-child(3) {
     top: 61%;
@@ -358,7 +352,7 @@ body {
     }
 }
 
-/* TIM BAY */
+/* TIM BAY LÊN */
 
 .heart {
     position: fixed;
@@ -419,6 +413,44 @@ body {
         opacity: 0.35;
         transform: scale(0.8) rotate(45deg);
         filter: brightness(1.2);
+    }
+}
+
+/* BÔNG TUYẾT RƠI - HIỆU ỨNG MỚI */
+
+.snowflake {
+    position: fixed;
+    top: -40px;
+    z-index: 4;
+    color: #ffffff;
+    pointer-events: none;
+    user-select: none;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 12px #bdeaff,
+        0 0 22px #80d8ff;
+    will-change: transform, opacity;
+    animation: snowFall var(--duration) linear forwards;
+}
+
+@keyframes snowFall {
+    0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate3d(35px, 50vh, 0) rotate(180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(-25px, 110vh, 0) rotate(360deg);
+        opacity: 0;
     }
 }
 
@@ -670,7 +702,7 @@ body {
     </div>
 </div>
 
-<!-- HIỆU ỨNG HOA HỒNG -->
+<!-- HIỆU ỨNG HOA HỒNG CHUYỂN TRANG -->
 
 <div id="cloudTransition"></div>
 
@@ -770,7 +802,7 @@ nextButton.addEventListener("click", function() {
     }, 2100);
 });
 
-/* TIM BAY */
+/* TIM BAY LÊN */
 
 function createHeart() {
     const heart = document.createElement("div");
@@ -819,7 +851,47 @@ function createSparkle() {
     }, 5000);
 }
 
+/* Giữ số lượng sao lấp lánh ổn định */
+
 setInterval(createSparkle, 250);
+
+/* BÔNG TUYẾT RƠI */
+
+function createSnowflake() {
+    const snow = document.createElement("div");
+    snow.className = "snowflake";
+
+    const shapes = ["❄", "❅", "❆", "✧", "❄"];
+
+    snow.textContent =
+        shapes[Math.floor(Math.random() * shapes.length)];
+
+    snow.style.left = Math.random() * 100 + "vw";
+
+    snow.style.fontSize =
+        (10 + Math.random() * 18) + "px";
+
+    const duration = 6 + Math.random() * 7;
+
+    snow.style.setProperty(
+        "--duration",
+        duration + "s"
+    );
+
+    /* Tạo độ lệch ngẫu nhiên để tuyết rơi tự nhiên */
+
+    snow.style.animationDelay = "0s";
+
+    document.body.appendChild(snow);
+
+    setTimeout(function() {
+        snow.remove();
+    }, duration * 1000);
+}
+
+/* Cứ 250 mili giây tạo một bông tuyết */
+
+setInterval(createSnowflake, 250);
 
 /* PHÁO HOA */
 
@@ -914,6 +986,7 @@ function explode(x, y) {
 }
 
 setInterval(launchFirework, 1500);
+
 </script>
 
 </body>
