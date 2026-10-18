@@ -4,332 +4,355 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gửi mẹ yêu - 20/10</title>
+<title>Happy 20/10 - Yeon Nek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 * {
     box-sizing: border-box;
 }
 
-:root {
-    --pink: #ff4384;
-    --deep: #c92d65;
-    --cream: #fff8f4;
-    --ink: #66384a;
-}
-
 body {
     margin: 0;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: var(--ink);
-    background: linear-gradient(135deg, #ffe4ec, #fff7ee 55%, #ffd8e5);
-    overflow-x: hidden;
-}
-
-main {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px 16px;
-    position: relative;
-}
-
-.card {
-    width: min(900px, 100%);
-    min-height: 570px;
-    border: 1px solid #fff;
-    background: rgba(255,255,255,.74);
-    border-radius: 28px;
-    box-shadow: 0 18px 60px #b8497130;
-    position: relative;
     overflow: hidden;
+    font-family: 'Pacifico', cursive;
+    background: #180510;
 }
 
-.glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(3px);
-    pointer-events: none;
+/* NỀN CHUNG */
+
+.page {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: radial-gradient(
+        ellipse at center,
+        #59152f 0%,
+        #300919 55%,
+        #100309 100%
+    );
 }
 
-.glow.one {
-    width: 260px;
-    height: 260px;
-    top: -80px;
-    left: -70px;
-    background: #ffb7cb88;
-}
-
-.glow.two {
-    width: 300px;
-    height: 300px;
-    right: -90px;
-    bottom: -100px;
-    background: #ffd2a888;
-}
-
-.screen {
-    position: relative;
+#page1 {
     z-index: 1;
-    display: none;
-    min-height: 570px;
-    padding: 42px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 34px;
 }
 
-.screen.active {
-    display: flex;
-    animation: appear .7s ease;
+#page2 {
+    z-index: 2;
+    visibility: hidden;
 }
 
-.intro {
-    flex: 1;
-    text-align: center;
-}
-
-.kicker {
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #b65b7b;
-    font-weight: bold;
-}
-
-h1 {
-    font-family: Georgia, serif;
-    color: var(--deep);
-    font-size: clamp(38px, 6vw, 66px);
-    line-height: 1.12;
-    margin: 16px 0;
-}
-
-.intro p {
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-button {
-    font-size: 16px;
-    font-weight: bold;
-    border: 0;
-    border-radius: 999px;
-    padding: 15px 25px;
-    color: white;
-    background: linear-gradient(135deg, #ff6a9c, #ed2872);
-    box-shadow: 0 8px 20px #ed287244;
-    cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-}
-
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px #ed287255;
-}
-
-.photo-area {
-    width: min(260px, 100%);
-    flex-shrink: 0;
-    text-align: center;
-    transform: rotate(3deg);
-    background: #fff;
-    padding: 12px 12px 18px;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px #8f3a5c2b;
-    cursor: pointer;
-}
-
-.photo-area img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 8px;
-    background: #ffe8ef;
-    display: block;
-}
-
-.photo-area .placeholder {
-    height: 260px;
-    border-radius: 8px;
-    background: linear-gradient(145deg, #ffe8ef, #fff4df);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #c26b88;
-    gap: 8px;
-}
-
-.photo-area .placeholder span {
-    font-size: 66px;
-}
-
-.photo-area p {
-    font-size: 13px;
-    margin: 12px 0 0;
-    color: #9a6b7b;
-}
-
-.hint {
-    font-size: 12px;
-    color: #986d7b;
-    line-height: 1.5;
-    margin-top: 10px;
-    text-align: center;
-}
-
-#photoInput {
-    display: none;
-}
-
-.letter-screen {
-    flex-direction: column;
-}
-
-.letter {
-    width: min(650px, 100%);
-    background: #fffaf0;
-    border: 1px solid #f4c4c9;
-    border-radius: 8px;
-    padding: clamp(24px, 5vw, 48px);
-    box-shadow: 0 12px 32px #85334c1c;
-    position: relative;
-    transform: rotate(-.5deg);
-}
-
-.letter:before {
-    content: "";
-    position: absolute;
-    inset: 9px;
-    border: 1px dashed #e8a9b6;
-    pointer-events: none;
-    border-radius: 5px;
-}
-
-.letter h2 {
-    font-family: Georgia, serif;
-    font-size: 34px;
-    color: #bd426b;
-    margin: 0 0 20px;
-}
-
-.letter p {
-    font-family: Georgia, serif;
-    font-size: 18px;
-    line-height: 1.85;
-    margin: 12px 0;
-}
-
-.signature {
-    text-align: right;
-    color: #bd426b;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 22px !important;
-}
-
-.letter-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-button.secondary {
-    background: #fff;
-    color: #c92d65;
-    border: 1px solid #f3b5ca;
-    box-shadow: none;
-}
-
-.hearts {
+#rotate-content {
     position: absolute;
     inset: 0;
     overflow: hidden;
-    pointer-events: none;
-    z-index: 2;
 }
+
+/* TRANG 1 */
+
+#message {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 20px;
+}
+
+.line {
+    margin: 20px 0;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.white-neon {
+    color: white;
+    font-size: clamp(30px, 6vw, 55px);
+    text-shadow:
+        0 0 8px white,
+        0 0 20px #ffb6dc,
+        0 0 40px #ff4fa3;
+}
+
+.pink-neon {
+    color: #ff9bd5;
+    font-size: clamp(35px, 7vw, 65px);
+    text-shadow:
+        0 0 8px #ff9bd5,
+        0 0 25px #ff4fa3,
+        0 0 50px #ff168b;
+}
+
+.gold-neon {
+    color: #ffe6a6;
+    font-size: clamp(22px, 4vw, 35px);
+    text-shadow:
+        0 0 8px #fff0b0,
+        0 0 20px #ffb52e,
+        0 0 35px #ff8c00;
+}
+
+@keyframes glow {
+    from { filter: brightness(0.85); }
+    to { filter: brightness(1.3); }
+}
+
+.main-button {
+    position: relative;
+    z-index: 10;
+    padding: 15px 28px;
+    border: 2px solid #ff9bd5;
+    border-radius: 40px;
+    color: white;
+    background: rgba(255, 70, 160, 0.22);
+    box-shadow:
+        0 0 15px #ff4fa3,
+        inset 0 0 10px #ff4fa3;
+    font-size: 18px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    transform: scale(1.08);
+    background: rgba(255, 70, 160, 0.5);
+}
+
+/* CHỮ RƠI TRANG 2 */
+
+.falling-message {
+    position: absolute;
+    top: -100px;
+    left: var(--left);
+    z-index: 2;
+    color: white;
+    font-size: clamp(14px, 2.3vw, 21px);
+    white-space: nowrap;
+    text-shadow:
+        0 0 5px white,
+        0 0 12px white,
+        0 0 22px #ff8ac5,
+        0 0 35px #ff4fa3;
+    pointer-events: none;
+    animation:
+        fallingText var(--duration) linear var(--delay) infinite,
+        swayText 3s ease-in-out infinite alternate;
+}
+
+@keyframes fallingText {
+    from { top: -100px; }
+    to { top: 110%; }
+}
+
+@keyframes swayText {
+    from {
+        margin-left: -25px;
+        rotate: -8deg;
+    }
+    to {
+        margin-left: 25px;
+        rotate: 8deg;
+    }
+}
+
+/* ẢNH RƠI VÀ LẮC LƯ */
+
+.falling-photo {
+    position: absolute;
+    top: -190px;
+    left: var(--left);
+    width: clamp(85px, 13vw, 135px);
+    height: clamp(115px, 18vw, 175px);
+    z-index: 3;
+    pointer-events: none;
+    animation:
+        fallingPhoto var(--duration) linear var(--delay) infinite,
+        swayPhoto 3s ease-in-out infinite alternate;
+}
+
+.falling-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 12px;
+    box-shadow:
+        0 0 15px #ff8ac5,
+        0 0 30px #ff4fa3;
+}
+
+@keyframes fallingPhoto {
+    from { top: -190px; }
+    to { top: 110%; }
+}
+
+@keyframes swayPhoto {
+    from {
+        margin-left: -20px;
+        rotate: -6deg;
+    }
+    to {
+        margin-left: 20px;
+        rotate: 6deg;
+    }
+}
+
+/* TIM BAY */
 
 .heart {
-    position: absolute;
+    position: fixed;
     bottom: -40px;
-    animation: floatUp linear forwards;
-    opacity: .8;
+    z-index: 4;
+    color: #ff80c0;
+    pointer-events: none;
+    text-shadow: 0 0 10px #ff4fa3;
+    animation: heartFly linear forwards;
 }
 
-footer {
-    text-align: center;
-    font-size: 13px;
-    padding: 0 20px 22px;
-    color: #a66d80;
-    position: relative;
-    z-index: 3;
-}
-
-@keyframes appear {
-    from {
+@keyframes heartFly {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.7);
         opacity: 0;
-        transform: translateY(14px);
+    }
+
+    10% { opacity: 1; }
+
+    100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* ÁNH SAO */
+
+.sparkle {
+    position: fixed;
+    z-index: 1;
+    color: white;
+    pointer-events: none;
+    text-shadow:
+        0 0 8px white,
+        0 0 15px #ff8ac5;
+    animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.6);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1.3);
     }
 }
 
-@keyframes floatUp {
-    to {
-        transform: translateY(-720px) rotate(35deg);
+/* PHÁO HOA */
+
+.rocket {
+    position: fixed;
+    z-index: 4;
+    width: 5px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff4bd;
+    box-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff80c0;
+    pointer-events: none;
+}
+
+.firework-particle {
+    position: fixed;
+    z-index: 4;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px currentColor;
+}
+
+/* HOA HỒNG CHUYỂN TRANG */
+
+#cloudTransition {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#cloudTransition.active {
+    display: grid;
+}
+
+.cloud {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0) rotate(-40deg);
+    font-size: clamp(35px, 7vw, 85px);
+    filter: drop-shadow(0 0 12px #ff69b4);
+    will-change: transform, opacity;
+}
+
+#cloudTransition.cover .cloud {
+    animation: roseCover 0.8s ease-in forwards;
+    animation-delay: var(--delay);
+}
+
+#cloudTransition.shrink .cloud {
+    animation: roseShrink 0.9s ease-out forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes roseCover {
+    0% {
         opacity: 0;
+        transform: scale(0) rotate(-40deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.5) rotate(15deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(2.5) rotate(0deg);
     }
 }
 
-@media (max-width: 650px) {
-    .card {
-        min-height: unset;
+@keyframes roseShrink {
+    0% {
+        opacity: 1;
+        transform: scale(2.5) rotate(0deg);
     }
 
-    .screen {
-        min-height: unset;
-        padding: 32px 22px;
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .photo-area {
-        width: 210px;
-    }
-
-    .photo-area img,
-    .photo-area .placeholder {
-        height: 205px;
-    }
-
-    h1 {
-        font-size: 43px;
-    }
-
-    .intro p {
-        font-size: 16px;
-    }
-
-    .letter p {
-        font-size: 16px;
-    }
-
-    .letter h2 {
-        font-size: 29px;
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(45deg);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+/* ĐIỆN THOẠI */
+
+@media (max-width: 600px) {
+    .falling-message {
+        font-size: 14px;
+    }
+
+    .main-button {
+        font-size: 16px;
     }
 }
 </style>
@@ -337,220 +360,320 @@ footer {
 
 <body>
 
-<main>
-<div class="card">
+<!-- TRANG 1 -->
 
-    <div class="glow one"></div>
-    <div class="glow two"></div>
+<div class="page" id="page1">
 
-    <div class="hearts" id="hearts"></div>
+    <div id="message">
+        <div class="line white-neon">Chúc mừng 20/10</div>
+        <div class="line pink-neon">♥ Yeon Nek ♥</div>
+        <div class="line gold-neon">Gửi cho congchua nhỏ</div>
+    </div>
 
-    <!-- MÀN HÌNH ĐẦU -->
-    <section class="screen active" id="homeScreen">
-
-        <div class="intro">
-
-            <div class="kicker">
-                20 tháng 10 · Dành tặng mẹ
-            </div>
-
-            <h1>
-                Chúc mừng<br>
-                20/10, mẹ yêu! 💗
-            </h1>
-
-            <p>
-                Con có một món quà nhỏ<br>
-                muốn dành tặng người tuyệt vời nhất.
-            </p>
-
-            <button id="openLetter">
-                Mẹ ơi, bấm vào đây nhé ♥
-            </button>
-
-        </div>
-
-        <div>
-
-            <div class="photo-area" id="photoArea">
-
-                <div class="placeholder" id="photoPlaceholder">
-                    <span>🌷</span>
-                    <strong>Ảnh mẹ ở đây</strong>
-                    <small>Thêm một tấm ảnh thật nhé</small>
-                </div>
-
-                <img id="motherPhoto" alt="Ảnh của mẹ" hidden>
-
-                <p>Người phụ nữ tuyệt vời nhất 💕</p>
-
-            </div>
-
-            <div class="hint">
-                Bấm vào khung ảnh để chọn ảnh của mẹ.
-            </div>
-
-            <input id="photoInput" type="file" accept="image/*">
-
-        </div>
-
-    </section>
-
-    <!-- LÁ THƯ CHÚC MỪNG -->
-    <section class="screen letter-screen" id="letterScreen">
-
-        <article class="letter">
-
-            <h2>Gửi mẹ yêu! 💌</h2>
-
-            <p>
-                Mẹ à, cảm ơn mẹ vì đã luôn yêu thương,
-                chăm sóc và ở bên con. Có thể đôi khi
-                con chưa nói ra, nhưng con luôn biết ơn
-                những điều mẹ làm cho con mỗi ngày.
-            </p>
-
-            <p>
-                Nhân ngày 20/10, con chúc mẹ luôn mạnh khỏe,
-                vui vẻ, bình an và lúc nào cũng nở nụ cười
-                thật tươi. Mong rằng mỗi ngày của mẹ đều có
-                thật nhiều niềm vui và yêu thương.
-            </p>
-
-            <p>
-                Cảm ơn mẹ vì đã là mẹ của con.
-                Con sẽ cố gắng học tập thật tốt và
-                trưởng thành hơn để mẹ luôn yên lòng.
-            </p>
-
-            <p class="signature">
-                Con yêu mẹ nhiều lắm! ❤️<br>
-                — Con của mẹ —
-            </p>
-
-        </article>
-
-        <div class="letter-actions">
-
-            <button class="secondary" id="backButton">
-                ← Quay lại
-            </button>
-
-            <button id="moreHearts">
-                Gửi mẹ thật nhiều tim 💖
-            </button>
-
-        </div>
-
-    </section>
-
-    <footer>
-        Made with love · Món quà nhỏ dành riêng cho mẹ
-    </footer>
+    <button class="main-button" id="nextButton">
+        bấm vào đây nekk 💗
+    </button>
 
 </div>
-</main>
+
+<!-- TRANG 2 -->
+
+<div class="page" id="page2">
+
+    <div id="rotate-content">
+
+        <!-- 6 CÂU CHÚC -->
+
+        <div class="falling-message"
+             style="--left:10%;--duration:12s;--delay:0s">
+            Đông đến roii
+        </div>
+
+        <div class="falling-message"
+             style="--left:75%;--duration:15s;--delay:2s">
+            Chúc bạn nhỏ 20/10 hạnh phúc
+        </div>
+
+        <div class="falling-message"
+             style="--left:35%;--duration:13s;--delay:4s">
+            Cám on vì đã xuất hiện
+        </div>
+
+        <div class="falling-message"
+             style="--left:85%;--duration:14s;--delay:1s">
+            Mong mọi điều tốt đẹp sẽ đến với bbi
+        </div>
+
+        <div class="falling-message"
+             style="--left:20%;--duration:16s;--delay:5s">
+            Tặng bé 20/10 nha
+        </div>
+
+        <div class="falling-message"
+             style="--left:60%;--duration:12s;--delay:3s">
+            Yeu nhieu lam ak
+        </div>
+
+        <!-- CÁC DÒNG CHỮ THÊM -->
+
+        <div class="falling-message"
+             style="--left:45%;--duration:15s;--delay:7s">
+            💗
+        </div>
+
+        <div class="falling-message"
+             style="--left:5%;--duration:14s;--delay:6s">
+            ✨
+        </div>
+
+        <div class="falling-message"
+             style="--left:90%;--duration:13s;--delay:8s">
+            🌸
+        </div>
+
+        <div class="falling-message"
+             style="--left:55%;--duration:16s;--delay:9s">
+            💕
+        </div>
+
+        <div class="falling-message"
+             style="--left:30%;--duration:14s;--delay:10s">
+            🩷
+        </div>
+
+        <div class="falling-message"
+             style="--left:70%;--duration:15s;--delay:11s">
+            💖
+        </div>
+
+        <!-- ẢNH RƠI -->
+
+        <div class="falling-photo"
+             style="--left:15%;--duration:14s;--delay:0s">
+            <img src="anh1.jpg" alt="Ảnh 1">
+        </div>
+
+        <div class="falling-photo"
+             style="--left:75%;--duration:17s;--delay:3s">
+            <img src="anh2.jpg" alt="Ảnh 2">
+        </div>
+
+        <div class="falling-photo"
+             style="--left:40%;--duration:15s;--delay:6s">
+            <img src="anh3.jpg" alt="Ảnh 3">
+        </div>
+
+        <div class="falling-photo"
+             style="--left:85%;--duration:18s;--delay:9s">
+            <img src="anh4.jpg" alt="Ảnh 4">
+        </div>
+
+        <div class="falling-photo"
+             style="--left:55%;--duration:16s;--delay:12s">
+            <img src="anh5.jpg" alt="Ảnh 5">
+        </div>
+
+    </div>
+</div>
+
+<!-- HOA HỒNG CHUYỂN TRANG -->
+
+<div id="cloudTransition"></div>
 
 <script>
-// LẤY CÁC THÀNH PHẦN TRÊN TRANG WEB
-const homeScreen = document.getElementById("homeScreen");
-const letterScreen = document.getElementById("letterScreen");
-const hearts = document.getElementById("hearts");
+const page1 = document.getElementById("page1");
+const page2 = document.getElementById("page2");
+const nextButton = document.getElementById("nextButton");
+const cloudTransition = document.getElementById("cloudTransition");
 
-const photoInput = document.getElementById("photoInput");
-const motherPhoto = document.getElementById("motherPhoto");
-const photoPlaceholder = document.getElementById("photoPlaceholder");
+let transitioning = false;
 
-// TẠO HIỆU ỨNG TRÁI TIM BAY
-function makeHearts(amount = 18) {
+/* CHUYỂN TRANG BẰNG HOA HỒNG */
 
-    const symbols = ["💗", "💕", "♥", "🌸", "💖"];
+nextButton.addEventListener("click", function() {
+    if (transitioning) return;
 
-    for (let i = 0; i < amount; i++) {
+    transitioning = true;
+    nextButton.disabled = true;
 
-        const heart = document.createElement("span");
+    cloudTransition.innerHTML = "";
 
-        heart.className = "heart";
+    const flowers = [
+        "🌹", "🌹", "🌹", "🌸",
+        "🌹", "🌺", "🌹", "💗"
+    ];
 
-        heart.textContent =
-            symbols[Math.floor(Math.random() * symbols.length)];
+    for (let i = 0; i < 42; i++) {
+        const flower = document.createElement("div");
+        flower.className = "cloud";
 
-        heart.style.left = Math.random() * 100 + "%";
+        flower.textContent =
+            flowers[Math.floor(Math.random() * flowers.length)];
 
-        heart.style.animationDuration =
-            (3 + Math.random() * 3) + "s";
+        flower.style.setProperty(
+            "--delay",
+            (Math.random() * 0.3) + "s"
+        );
 
-        heart.style.animationDelay =
-            (Math.random() * 1.2) + "s";
+        cloudTransition.appendChild(flower);
+    }
 
-        heart.style.fontSize =
-            (16 + Math.random() * 20) + "px";
+    cloudTransition.classList.add("active", "cover");
 
-        hearts.appendChild(heart);
+    setTimeout(function() {
+        page2.style.visibility = "visible";
+        page2.style.zIndex = "3";
+    }, 850);
 
-        heart.addEventListener("animationend", () => {
-            heart.remove();
+    setTimeout(function() {
+        cloudTransition.classList.remove("cover");
+        cloudTransition.classList.add("shrink");
+    }, 1100);
+
+    setTimeout(function() {
+        page1.style.display = "none";
+        page2.style.zIndex = "2";
+
+        cloudTransition.classList.remove("active", "shrink");
+        cloudTransition.innerHTML = "";
+    }, 2100);
+});
+
+/* TIM BAY */
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+
+    const hearts = ["♥", "♡", "💗", "💕"];
+
+    heart.textContent =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+    const duration = 5 + Math.random() * 5;
+    heart.style.animationDuration = duration + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, duration * 1000);
+}
+
+setInterval(createHeart, 700);
+
+/* ÁNH SAO */
+
+function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.textContent = "✦";
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.top = Math.random() * 100 + "vh";
+    sparkle.style.fontSize = (8 + Math.random() * 15) + "px";
+    sparkle.style.animationDelay = Math.random() * 2 + "s";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(function() {
+        sparkle.remove();
+    }, 5000);
+}
+
+setInterval(createSparkle, 400);
+
+/* PHÁO HOA */
+
+function launchFirework() {
+    const x = 10 + Math.random() * 80;
+    const startY = window.innerHeight + 10;
+    const endY = window.innerHeight * (0.15 + Math.random() * 0.35);
+
+    const rocket = document.createElement("div");
+    rocket.className = "rocket";
+    rocket.style.left = x + "vw";
+    rocket.style.top = startY + "px";
+
+    document.body.appendChild(rocket);
+
+    const travelTime = 700 + Math.random() * 500;
+    const startTime = performance.now();
+
+    function moveRocket(now) {
+        const progress = Math.min(
+            (now - startTime) / travelTime,
+            1
+        );
+
+        const currentY = startY + (endY - startY) * progress;
+        rocket.style.top = currentY + "px";
+
+        if (progress < 1) {
+            requestAnimationFrame(moveRocket);
+        } else {
+            rocket.remove();
+            explode(x * window.innerWidth / 100, endY);
+        }
+    }
+
+    requestAnimationFrame(moveRocket);
+}
+
+function explode(x, y) {
+    const colors = [
+        "#ff4fa3",
+        "#ffd166",
+        "#ffffff",
+        "#a78bfa",
+        "#7df9ff"
+    ];
+
+    const count = 35;
+
+    for (let i = 0; i < count; i++) {
+        const particle = document.createElement("div");
+        particle.className = "firework-particle";
+
+        const color =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        particle.style.background = color;
+        particle.style.color = color;
+        particle.style.left = x + "px";
+        particle.style.top = y + "px";
+
+        document.body.appendChild(particle);
+
+        const angle = Math.PI * 2 * i / count;
+        const speed = 50 + Math.random() * 130;
+        const dx = Math.cos(angle) * speed;
+        const dy = Math.sin(angle) * speed;
+
+        const animation = particle.animate([
+            {
+                transform: "translate(0, 0) scale(1)",
+                opacity: 1
+            },
+            {
+                transform: `translate(${dx}px, ${dy}px) scale(0.2)`,
+                opacity: 0
+            }
+        ], {
+            duration: 800 + Math.random() * 500,
+            easing: "ease-out"
         });
+
+        animation.onfinish = function() {
+            particle.remove();
+        };
     }
 }
 
-// BẤM NÚT ĐỂ MỞ LÁ THƯ
-document.getElementById("openLetter").addEventListener("click", () => {
-
-    homeScreen.classList.remove("active");
-
-    letterScreen.classList.add("active");
-
-    makeHearts(30);
-
-});
-
-// QUAY LẠI MÀN HÌNH ĐẦU
-document.getElementById("backButton").addEventListener("click", () => {
-
-    letterScreen.classList.remove("active");
-
-    homeScreen.classList.add("active");
-
-});
-
-// BẤM NÚT ĐỂ TẠO THÊM TRÁI TIM
-document.getElementById("moreHearts").addEventListener("click", () => {
-    makeHearts(35);
-});
-
-// BẤM VÀO KHUNG ĐỂ CHỌN ẢNH CỦA MẸ
-document.getElementById("photoArea").addEventListener("click", () => {
-    photoInput.click();
-});
-
-// HIỂN THỊ ẢNH ĐÃ CHỌN
-photoInput.addEventListener("change", () => {
-
-    const file = photoInput.files[0];
-
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-        alert("Bạn hãy chọn một tệp ảnh nhé!");
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-
-        motherPhoto.src = reader.result;
-
-        motherPhoto.hidden = false;
-
-        photoPlaceholder.hidden = true;
-
-    };
-
-    reader.readAsDataURL(file);
-
-});
+setInterval(launchFirework, 1500);
 </script>
 
 </body>
