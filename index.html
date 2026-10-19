@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -20,18 +19,11 @@ body {
     background: #000;
 }
 
-/* NỀN CHUNG */
-
 .page {
     position: fixed;
     inset: 0;
     overflow: hidden;
-    background: radial-gradient(
-        ellipse at center,
-        #59152f 0%,
-        #300919 55%,
-        #100309 100%
-    );
+    background: radial-gradient(ellipse at center, #59152f 0%, #300919 55%, #100309 100%);
 }
 
 #page1 {
@@ -51,7 +43,7 @@ body {
     overflow: hidden;
 }
 
-/* TRANG 1 - CHỮ Ở CÁC VỊ TRÍ KHÁC NHAU */
+/* TRANG 1 */
 
 #message {
     position: absolute;
@@ -68,11 +60,7 @@ body {
     margin: 0;
     text-align: center;
     opacity: 0;
-
-    animation:
-        textReveal 2s ease forwards,
-        glow 2s ease-in-out 2s infinite alternate,
-        floatText 3s ease-in-out 2s infinite;
+    animation: textReveal 2s ease forwards, glow 2s ease-in-out 2s infinite alternate, floatText 3s ease-in-out 2s infinite;
 }
 
 .line:nth-child(1) {
@@ -90,18 +78,12 @@ body {
     animation-delay: 3.9s, 5.9s, 5.9s;
 }
 
-/* CHỮ NEON */
-
 .white-neon {
     font-family: 'Righteous', cursive;
     font-size: clamp(30px, 6vw, 58px);
     letter-spacing: 3px;
     color: #fff8fc;
-    text-shadow:
-        0 0 8px white,
-        0 0 18px #ffb6dc,
-        0 0 35px #ff4fa3,
-        0 0 60px #ff168b;
+    text-shadow: 0 0 8px white, 0 0 18px #ffb6dc, 0 0 35px #ff4fa3, 0 0 60px #ff168b;
 }
 
 .pink-neon {
@@ -109,81 +91,40 @@ body {
     font-size: clamp(38px, 7vw, 70px);
     letter-spacing: 2px;
     color: #ff8ed0;
-    text-shadow:
-        0 0 8px #fff,
-        0 0 20px #ff70bd,
-        0 0 40px #ff168b,
-        0 0 65px #ff168b;
+    text-shadow: 0 0 8px #fff, 0 0 20px #ff70bd, 0 0 40px #ff168b, 0 0 65px #ff168b;
 }
 
 .gold-neon {
     font-family: 'Pacifico', cursive;
     font-size: clamp(23px, 4vw, 38px);
     color: #ffe6a6;
-    text-shadow:
-        0 0 8px #fff0b0,
-        0 0 20px #ffb52e,
-        0 0 35px #ff8c00;
+    text-shadow: 0 0 8px #fff0b0, 0 0 20px #ffb52e, 0 0 35px #ff8c00;
 }
 
-/* HIỆU ỨNG HIỆN DẦN */
-
 @keyframes backgroundReveal {
-    from {
-        background: #000;
-    }
-
+    from { background: #000; }
     to {
-        background: radial-gradient(
-            ellipse at center,
-            #59152f 0%,
-            #300919 55%,
-            #100309 100%
-        );
+        background: radial-gradient(ellipse at center, #59152f 0%, #300919 55%, #100309 100%);
     }
 }
 
 @keyframes textReveal {
-    0% {
-        opacity: 0;
-        filter: brightness(0);
-        transform: scale(0.75);
-    }
-
-    60% {
-        opacity: 0.7;
-        filter: brightness(0.7);
-        transform: scale(1.04);
-    }
-
-    100% {
-        opacity: 1;
-        filter: brightness(1);
-        transform: scale(1);
-    }
+    0% { opacity: 0; filter: brightness(0); transform: scale(0.75); }
+    60% { opacity: 0.7; filter: brightness(0.7); transform: scale(1.04); }
+    100% { opacity: 1; filter: brightness(1); transform: scale(1); }
 }
 
 @keyframes glow {
-    from {
-        filter: brightness(0.85);
-    }
-
-    to {
-        filter: brightness(1.3);
-    }
+    from { filter: brightness(0.85); }
+    to { filter: brightness(1.3); }
 }
 
 @keyframes floatText {
-    0%, 100% {
-        translate: 0 0;
-    }
-
-    50% {
-        translate: 0 -7px;
-    }
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -7px; }
 }
 
-/* NÚT BẤM */
+/* NÚT CHUYỂN TRANG */
 
 .main-button {
     position: absolute;
@@ -195,9 +136,7 @@ body {
     border-radius: 40px;
     color: white;
     background: rgba(255, 70, 160, 0.22);
-    box-shadow:
-        0 0 15px #ff4fa3,
-        inset 0 0 10px #ff4fa3;
+    box-shadow: 0 0 15px #ff4fa3, inset 0 0 10px #ff4fa3;
     font-size: 18px;
     font-family: inherit;
     cursor: pointer;
@@ -212,15 +151,8 @@ body {
 }
 
 @keyframes buttonReveal {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(20px) scale(0.8);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateX(-50%) translateY(20px) scale(0.8); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
 }
 
 /* SAO TRẮNG NEON */
@@ -231,36 +163,17 @@ body {
     color: #fff;
     pointer-events: none;
     user-select: none;
-    text-shadow:
-        0 0 4px #fff,
-        0 0 8px #fff,
-        0 0 15px #dceeff,
-        0 0 25px #8acaff,
-        0 0 40px #fff;
+    text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 15px #dceeff, 0 0 25px #8acaff, 0 0 40px #fff;
     animation: whiteStarGlow var(--duration) ease-in-out infinite alternate;
 }
 
 @keyframes whiteStarGlow {
-    0% {
-        opacity: 0.2;
-        transform: scale(0.6) rotate(0deg);
-        filter: brightness(0.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2) rotate(20deg);
-        filter: brightness(1.5);
-    }
-
-    100% {
-        opacity: 0.4;
-        transform: scale(0.8) rotate(45deg);
-        filter: brightness(1);
-    }
+    0% { opacity: 0.2; transform: scale(0.6) rotate(0deg); filter: brightness(0.8); }
+    50% { opacity: 1; transform: scale(1.2) rotate(20deg); filter: brightness(1.5); }
+    100% { opacity: 0.4; transform: scale(0.8) rotate(45deg); filter: brightness(1); }
 }
 
-/* CHỮ RƠI TRANG 2 */
+/* CHỮ RƠI */
 
 .falling-message {
     position: absolute;
@@ -270,37 +183,19 @@ body {
     color: white;
     font-size: clamp(14px, 2.3vw, 21px);
     white-space: nowrap;
-    text-shadow:
-        0 0 5px white,
-        0 0 12px white,
-        0 0 22px #ff8ac5,
-        0 0 35px #ff4fa3;
+    text-shadow: 0 0 5px white, 0 0 12px white, 0 0 22px #ff8ac5, 0 0 35px #ff4fa3;
     pointer-events: none;
-    animation:
-        fallingText var(--duration) linear var(--delay) infinite,
-        swayText 3s ease-in-out infinite alternate;
+    animation: fallingText var(--duration) linear var(--delay) infinite, swayText 3s ease-in-out infinite alternate;
 }
 
 @keyframes fallingText {
-    from {
-        top: -100px;
-    }
-
-    to {
-        top: 110%;
-    }
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(0, calc(100vh + 220px), 0); }
 }
 
 @keyframes swayText {
-    from {
-        margin-left: -25px;
-        rotate: -8deg;
-    }
-
-    to {
-        margin-left: 25px;
-        rotate: 8deg;
-    }
+    from { margin-left: -25px; rotate: -8deg; }
+    to { margin-left: 25px; rotate: 8deg; }
 }
 
 /* ẢNH RƠI */
@@ -313,9 +208,7 @@ body {
     height: clamp(115px, 18vw, 175px);
     z-index: 3;
     pointer-events: none;
-    animation:
-        fallingPhoto var(--duration) linear var(--delay) infinite,
-        swayPhoto 3s ease-in-out infinite alternate;
+    animation: fallingPhoto var(--duration) linear var(--delay) infinite, swayPhoto 3s ease-in-out infinite alternate;
 }
 
 .falling-photo img {
@@ -323,36 +216,23 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    backface-visibility: hidden;
     border: 3px solid white;
     border-radius: 12px;
-    box-shadow:
-        0 0 15px #ff8ac5,
-        0 0 30px #ff4fa3;
+    box-shadow: 0 0 15px #ff8ac5, 0 0 30px #ff4fa3;
 }
 
 @keyframes fallingPhoto {
-    from {
-        top: -190px;
-    }
-
-    to {
-        top: 110%;
-    }
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(0, calc(100vh + 300px), 0); }
 }
 
 @keyframes swayPhoto {
-    from {
-        margin-left: -20px;
-        rotate: -6deg;
-    }
-
-    to {
-        margin-left: 20px;
-        rotate: 6deg;
-    }
+    from { margin-left: -20px; rotate: -6deg; }
+    to { margin-left: 20px; rotate: 6deg; }
 }
 
-/* TIM BAY LÊN */
+/* TIM BAY */
 
 .heart {
     position: fixed;
@@ -365,19 +245,9 @@ body {
 }
 
 @keyframes heartFly {
-    0% {
-        transform: translateY(0) rotate(0deg) scale(0.7);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-115vh) rotate(360deg) scale(1.3);
-        opacity: 0;
-    }
+    0% { transform: translateY(0) rotate(0deg) scale(0.7); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-115vh) rotate(360deg) scale(1.3); opacity: 0; }
 }
 
 /* SAO LẤP LÁNH */
@@ -388,70 +258,35 @@ body {
     color: white;
     pointer-events: none;
     user-select: none;
-    text-shadow:
-        0 0 8px white,
-        0 0 15px #fff,
-        0 0 25px #8acaff,
-        0 0 35px #ff8ac5;
+    text-shadow: 0 0 8px white, 0 0 15px #fff, 0 0 25px #8acaff, 0 0 35px #ff8ac5;
     animation: sparkle 2s ease-in-out infinite alternate;
 }
 
 @keyframes sparkle {
-    0% {
-        opacity: 0.15;
-        transform: scale(0.5) rotate(0deg);
-        filter: brightness(0.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.3) rotate(20deg);
-        filter: brightness(1.8);
-    }
-
-    100% {
-        opacity: 0.35;
-        transform: scale(0.8) rotate(45deg);
-        filter: brightness(1.2);
-    }
+    0% { opacity: 0.15; transform: scale(0.5) rotate(0deg); filter: brightness(0.8); }
+    50% { opacity: 1; transform: scale(1.3) rotate(20deg); filter: brightness(1.8); }
+    100% { opacity: 0.35; transform: scale(0.8) rotate(45deg); filter: brightness(1.2); }
 }
 
-/* BÔNG TUYẾT RƠI - HIỆU ỨNG MỚI */
+/* TUYẾT */
 
 .snowflake {
     position: fixed;
     top: -40px;
     z-index: 4;
-    color: #ffffff;
+    color: #fff;
     pointer-events: none;
     user-select: none;
-    text-shadow:
-        0 0 5px #ffffff,
-        0 0 12px #bdeaff,
-        0 0 22px #80d8ff;
+    text-shadow: 0 0 5px #fff, 0 0 12px #bdeaff, 0 0 22px #80d8ff;
     will-change: transform, opacity;
     animation: snowFall var(--duration) linear forwards;
 }
 
 @keyframes snowFall {
-    0% {
-        transform: translate3d(0, -5vh, 0) rotate(0deg);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.9;
-    }
-
-    50% {
-        transform: translate3d(35px, 50vh, 0) rotate(180deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate3d(-25px, 110vh, 0) rotate(360deg);
-        opacity: 0;
-    }
+    0% { transform: translate3d(0, -5vh, 0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.9; }
+    50% { transform: translate3d(35px, 50vh, 0) rotate(180deg); opacity: 1; }
+    100% { transform: translate3d(-25px, 110vh, 0) rotate(360deg); opacity: 0; }
 }
 
 /* PHÁO HOA */
@@ -463,9 +298,7 @@ body {
     height: 12px;
     border-radius: 50%;
     background: #fff4bd;
-    box-shadow:
-        0 0 10px #fff,
-        0 0 20px #ff80c0;
+    box-shadow: 0 0 10px #fff, 0 0 20px #ff80c0;
     pointer-events: none;
 }
 
@@ -519,32 +352,217 @@ body {
 }
 
 @keyframes roseCover {
-    0% {
-        opacity: 0;
-        transform: scale(0) rotate(-40deg);
-    }
-
-    60% {
-        opacity: 1;
-        transform: scale(1.5) rotate(15deg);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(2.5) rotate(0deg);
-    }
+    0% { opacity: 0; transform: scale(0) rotate(-40deg); }
+    60% { opacity: 1; transform: scale(1.5) rotate(15deg); }
+    100% { opacity: 1; transform: scale(2.5) rotate(0deg); }
 }
 
 @keyframes roseShrink {
-    0% {
-        opacity: 1;
-        transform: scale(2.5) rotate(0deg);
-    }
+    0% { opacity: 1; transform: scale(2.5) rotate(0deg); }
+    100% { opacity: 0; transform: scale(0) rotate(45deg); }
+}
 
-    100% {
-        opacity: 0;
-        transform: scale(0) rotate(45deg);
-    }
+/* PHONG THƯ - MẶC ĐỊNH ẨN */
+
+#letterIcon {
+    display: none;
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 150;
+    width: 58px;
+    height: 48px;
+    border: 1px solid #ffc0df;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffb5dc, #ff4fa3);
+    box-shadow: 0 0 12px #ff70bd, 0 0 28px #ff168b;
+    font-size: 29px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    animation: letterWiggle 2s ease-in-out infinite;
+}
+
+#letterIcon.show-letter {
+    display: flex;
+}
+
+@keyframes letterWiggle {
+    0%, 100% { transform: rotate(0) scale(1); }
+    25% { transform: rotate(-7deg) scale(1.06); }
+    75% { transform: rotate(7deg) scale(1.06); }
+}
+
+/* LỚP MỜ KHI MỞ THƯ */
+
+#letterModal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(10, 0, 12, 0.82);
+    backdrop-filter: blur(7px);
+}
+
+#letterModal.show {
+    display: flex;
+    animation: modalFade .4s ease;
+}
+
+@keyframes modalFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.letter-window {
+    position: relative;
+    width: min(470px, 94vw);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    padding: 22px 18px;
+    border: 1px solid rgba(255, 174, 218, .7);
+    border-radius: 22px;
+    background: radial-gradient(ellipse at top, #5c193f, #21091d 75%);
+    box-shadow: 0 0 25px #ff4fa3, 0 0 65px rgba(255, 40, 150, .35);
+}
+
+#closeLetter {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ff9bd5;
+    border-radius: 50%;
+    color: white;
+    background: rgba(255, 79, 163, .25);
+    font: 25px Arial, sans-serif;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.letter-title {
+    margin: 5px 0 18px;
+    color: #ffb5dc;
+    font-size: clamp(25px, 6vw, 34px);
+    text-align: center;
+    text-shadow: 0 0 10px #ff4fa3, 0 0 22px #ff168b;
+}
+
+.envelope-area {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 0 22px;
+}
+
+.envelope {
+    position: relative;
+    width: min(240px, 70vw);
+    height: 155px;
+    margin: 8px auto 20px;
+    border: 2px solid #ffc4e1;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #ffb5dc, #ff5cab);
+    box-shadow: 0 0 18px #ff4fa3, 0 0 35px rgba(255, 79, 163, .45);
+    overflow: hidden;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    border-left: calc(min(240px, 70vw) / 2) solid transparent;
+    border-right: calc(min(240px, 70vw) / 2) solid transparent;
+    border-top: 90px solid #ffe0ef;
+    z-index: 2;
+}
+
+.envelope::after {
+    content: "♥";
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    color: #d71972;
+    font-size: 38px;
+    text-shadow: 0 0 8px white;
+}
+
+.open-letter-button {
+    padding: 12px 24px;
+    border: 1px solid #ffc0df;
+    border-radius: 30px;
+    color: white;
+    background: linear-gradient(135deg, #ff91cb, #e92b89);
+    box-shadow: 0 0 14px #ff4fa3;
+    font-family: inherit;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.open-letter-button:hover {
+    filter: brightness(1.15);
+    transform: scale(1.03);
+}
+
+/* GIẤY THƯ */
+
+#paperWrap {
+    display: none;
+    width: 100%;
+    padding: 5px 0 10px;
+}
+
+#paperWrap.show {
+    display: block;
+    animation: paperAppear .65s ease;
+}
+
+@keyframes paperAppear {
+    from { opacity: 0; transform: translateY(20px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.letter-paper {
+    width: 100%;
+    padding: 22px 20px;
+    border-radius: 7px;
+    color: #67324b;
+    background: #fff3f7;
+    box-shadow: 0 0 18px rgba(255, 182, 215, .5);
+    font-family: 'Pacifico', cursive;
+    font-size: 15px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.letter-paper h2 {
+    margin: 0 0 12px;
+    color: #d72c80;
+    font-size: 22px;
+    text-align: center;
+}
+
+.letter-paper p {
+    margin: 0 0 12px;
+}
+
+.letter-signature {
+    margin-top: 16px;
+    text-align: right;
+    color: #d72c80;
+    font-size: 17px;
 }
 
 /* ĐIỆN THOẠI */
@@ -576,26 +594,23 @@ body {
     .falling-message {
         font-size: 14px;
     }
+
+    .letter-window {
+        padding: 20px 12px;
+    }
+
+    .letter-paper {
+        padding: 18px 14px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
 }
 
-/* MÀN HÌNH THẤP */
-
 @media (max-height: 600px) {
-    .line:nth-child(1) {
-        top: 12%;
-    }
-
-    .line:nth-child(2) {
-        top: 35%;
-    }
-
-    .line:nth-child(3) {
-        top: 58%;
-    }
-
-    .main-button {
-        top: 82%;
-    }
+    .line:nth-child(1) { top: 12%; }
+    .line:nth-child(2) { top: 35%; }
+    .line:nth-child(3) { top: 58%; }
+    .main-button { top: 82%; }
 }
 </style>
 </head>
@@ -605,7 +620,6 @@ body {
 <!-- TRANG 1 -->
 
 <div class="page" id="page1">
-
     <div id="message">
         <div class="line white-neon">Chúc mừng 20/10</div>
         <div class="line pink-neon">♥ Yeon Nek ♥</div>
@@ -615,94 +629,118 @@ body {
     <button class="main-button" id="nextButton">
         bấm vào đây nekk 💗
     </button>
-
 </div>
 
 <!-- TRANG 2 -->
 
 <div class="page" id="page2">
-
     <div id="rotate-content">
 
-        <div class="falling-message"
-             style="--left:10%;--duration:12s;--delay:0s">
-            Đông đến roii
-        </div>
-
-        <div class="falling-message"
-             style="--left:75%;--duration:15s;--delay:2s">
-            Chúc bạn nhỏ 20/10 hạnh phúc
-        </div>
-
-        <div class="falling-message"
-             style="--left:35%;--duration:13s;--delay:4s">
-            Cám on vì đã xuất hiện
-        </div>
-
-        <div class="falling-message"
-             style="--left:85%;--duration:14s;--delay:1s">
+        <div class="falling-message" style="--left:10%;--duration:12s;--delay:0s">
             Mong mọi điều tốt đẹp sẽ đến với bbi
         </div>
 
-        <div class="falling-message"
-             style="--left:20%;--duration:16s;--delay:5s">
-            Tặng bé 20/10 nha
+        <div class="falling-message" style="--left:75%;--duration:15s;--delay:2s">
+            Tặng bạn nhỏ của t nek
         </div>
 
-        <div class="falling-message"
-             style="--left:60%;--duration:12s;--delay:3s">
+        <div class="falling-message" style="--left:35%;--duration:13s;--delay:4s">
+            Cám on vì đã xuất hiện
+        </div>
+
+        <div class="falling-message" style="--left:85%;--duration:14s;--delay:1s">
+            Đông đến roii
+        </div>
+
+        <div class="falling-message" style="--left:20%;--duration:16s;--delay:5s">
+            Chúc bạn nhỏ 20/10 hạnh phúc
+        </div>
+
+        <div class="falling-message" style="--left:60%;--duration:12s;--delay:3s">
             Yeu nhieu lam ak
         </div>
 
-        <div class="falling-message"
-             style="--left:45%;--duration:15s;--delay:7s">💗</div>
-
-        <div class="falling-message"
-             style="--left:5%;--duration:14s;--delay:6s">✨</div>
-
-        <div class="falling-message"
-             style="--left:90%;--duration:13s;--delay:8s">🌸</div>
-
-        <div class="falling-message"
-             style="--left:55%;--duration:16s;--delay:9s">💕</div>
-
-        <div class="falling-message"
-             style="--left:30%;--duration:14s;--delay:10s">🩷</div>
-
-        <div class="falling-message"
-             style="--left:70%;--duration:15s;--delay:11s">💖</div>
+        <div class="falling-message" style="--left:45%;--duration:15s;--delay:7s">💗</div>
+        <div class="falling-message" style="--left:5%;--duration:14s;--delay:6s">✨</div>
+        <div class="falling-message" style="--left:90%;--duration:13s;--delay:8s">🌸</div>
+        <div class="falling-message" style="--left:55%;--duration:16s;--delay:9s">💕</div>
+        <div class="falling-message" style="--left:30%;--duration:14s;--delay:10s">🩷</div>
+        <div class="falling-message" style="--left:70%;--duration:15s;--delay:11s">💖</div>
 
         <!-- ẢNH RƠI -->
 
-        <div class="falling-photo"
-             style="--left:15%;--duration:14s;--delay:0s">
+        <div class="falling-photo" style="--left:15%;--duration:14s;--delay:0s">
             <img src="anh1.jpg" alt="Ảnh 1">
         </div>
 
-        <div class="falling-photo"
-             style="--left:75%;--duration:17s;--delay:3s">
+        <div class="falling-photo" style="--left:75%;--duration:17s;--delay:3s">
             <img src="anh2.jpg" alt="Ảnh 2">
         </div>
 
-        <div class="falling-photo"
-             style="--left:40%;--duration:15s;--delay:6s">
+        <div class="falling-photo" style="--left:40%;--duration:15s;--delay:6s">
             <img src="anh3.jpg" alt="Ảnh 3">
         </div>
 
-        <div class="falling-photo"
-             style="--left:85%;--duration:18s;--delay:9s">
+        <div class="falling-photo" style="--left:85%;--duration:18s;--delay:9s">
             <img src="anh4.jpg" alt="Ảnh 4">
         </div>
 
-        <div class="falling-photo"
-             style="--left:55%;--duration:16s;--delay:12s">
+        <div class="falling-photo" style="--left:55%;--duration:16s;--delay:12s">
             <img src="anh5.jpg" alt="Ảnh 5">
         </div>
 
     </div>
 </div>
 
-<!-- HIỆU ỨNG HOA HỒNG CHUYỂN TRANG -->
+<!-- PHONG THƯ: ẨN Ở TRANG 1 -->
+
+<button id="letterIcon" aria-label="Mở thư">💌</button>
+
+<!-- HỘP THƯ -->
+
+<div id="letterModal">
+    <div class="letter-window">
+        <button id="closeLetter" aria-label="Đóng thư">×</button>
+
+        <h2 class="letter-title">Một chút gửi bạn nhỏ 💗</h2>
+
+        <div class="envelope-area" id="envelopeArea">
+            <div class="envelope"></div>
+            <button class="open-letter-button" id="openLetterButton">
+                Mở thư nè 💌
+            </button>
+        </div>
+
+        <div id="paperWrap">
+            <div class="letter-paper">
+                <h2>Gửi người tôi yêu 💗</h2>
+
+                <p>
+                    Hôm nay là 20/10, chúc bạn nhỏ một ngày thật nhiều niềm vui.
+                    Chúc em ngày càng xinh xắn, ngày càng học giỏi và hạnh phúc.
+                </p>
+
+                <p>
+                    Mong rằng mọi điều tốt đẹp nhất khiến công chúa hạnh phúc
+                    sẽ luôn đến với công chúa. Nhớ nè, cố gắng học tập, và hơn hết
+                    là chăm sóc cho bản thân mình nhiều hơn.
+                </p>
+
+                <p>
+                    Cảm ơn bạn nhỏ vì đã là một phần trong cuộc sống của t,
+                    giúp những ngày mà t coi là bình thường trở nên đặc biệt
+                    hơn bao giờ hết. Mong là chúng ta vẫn sẽ bên nhau lâu ơi là lâu.
+                </p>
+
+                <div class="letter-signature">
+                    — Trần Anh Kiệt —
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HOA HỒNG CHUYỂN TRANG -->
 
 <div id="cloudTransition"></div>
 
@@ -712,25 +750,30 @@ const page2 = document.getElementById("page2");
 const nextButton = document.getElementById("nextButton");
 const cloudTransition = document.getElementById("cloudTransition");
 
+const letterIcon = document.getElementById("letterIcon");
+const letterModal = document.getElementById("letterModal");
+const closeLetter = document.getElementById("closeLetter");
+const openLetterButton = document.getElementById("openLetterButton");
+const envelopeArea = document.getElementById("envelopeArea");
+const paperWrap = document.getElementById("paperWrap");
+
 let transitioning = false;
 
 /* SAO TRẮNG NEON NỀN */
 
 function createBackgroundStar() {
+    if (document.hidden) return;
     const star = document.createElement("div");
     star.className = "background-star";
 
     const shapes = ["✦", "✧", "✶", "✴", "⋆"];
-
-    star.textContent =
-        shapes[Math.floor(Math.random() * shapes.length)];
+    star.textContent = shapes[Math.floor(Math.random() * shapes.length)];
 
     star.style.left = Math.random() * 100 + "vw";
     star.style.top = Math.random() * 100 + "vh";
     star.style.fontSize = (10 + Math.random() * 22) + "px";
 
     const duration = 1.5 + Math.random() * 3;
-
     star.style.setProperty("--duration", duration + "s");
     star.style.animationDelay = Math.random() * 2 + "s";
 
@@ -761,22 +804,14 @@ nextButton.addEventListener("click", function() {
 
     cloudTransition.innerHTML = "";
 
-    const flowers = [
-        "🌹", "🌹", "🌹", "🌸",
-        "🌹", "🌺", "🌹", "💗"
-    ];
+    const flowers = ["🌹", "🌹", "🌹", "🌸", "🌹", "🌺", "🌹", "💗"];
 
     for (let i = 0; i < 42; i++) {
         const flower = document.createElement("div");
         flower.className = "cloud";
 
-        flower.textContent =
-            flowers[Math.floor(Math.random() * flowers.length)];
-
-        flower.style.setProperty(
-            "--delay",
-            Math.random() * 0.3 + "s"
-        );
+        flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+        flower.style.setProperty("--delay", Math.random() * 0.3 + "s");
 
         cloudTransition.appendChild(flower);
     }
@@ -799,19 +834,52 @@ nextButton.addEventListener("click", function() {
 
         cloudTransition.classList.remove("active", "shrink");
         cloudTransition.innerHTML = "";
+
+        /* SANG TRANG 2 MỚI HIỆN PHONG THƯ */
+        letterIcon.classList.add("show-letter");
     }, 2100);
+});
+
+/* MỞ PHONG THƯ */
+
+letterIcon.addEventListener("click", function() {
+    letterModal.classList.add("show");
+    envelopeArea.style.display = "block";
+    paperWrap.classList.remove("show");
+});
+
+openLetterButton.addEventListener("click", function() {
+    envelopeArea.style.display = "none";
+    paperWrap.classList.add("show");
+});
+
+function closeLetterModal() {
+    letterModal.classList.remove("show");
+}
+
+closeLetter.addEventListener("click", closeLetterModal);
+
+letterModal.addEventListener("click", function(event) {
+    if (event.target === letterModal) {
+        closeLetterModal();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeLetterModal();
+    }
 });
 
 /* TIM BAY LÊN */
 
 function createHeart() {
+    if (document.hidden) return;
     const heart = document.createElement("div");
     heart.className = "heart";
 
     const hearts = ["♥", "♡", "💗", "💕"];
-
-    heart.textContent =
-        hearts[Math.floor(Math.random() * hearts.length)];
+    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
 
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = (15 + Math.random() * 25) + "px";
@@ -831,13 +899,12 @@ setInterval(createHeart, 700);
 /* SAO LẤP LÁNH */
 
 function createSparkle() {
+    if (document.hidden) return;
     const sparkle = document.createElement("div");
     sparkle.className = "sparkle";
 
     const shapes = ["✦", "✧", "⋆", "✶"];
-
-    sparkle.textContent =
-        shapes[Math.floor(Math.random() * shapes.length)];
+    sparkle.textContent = shapes[Math.floor(Math.random() * shapes.length)];
 
     sparkle.style.left = Math.random() * 100 + "vw";
     sparkle.style.top = Math.random() * 100 + "vh";
@@ -851,35 +918,23 @@ function createSparkle() {
     }, 5000);
 }
 
-/* Giữ số lượng sao lấp lánh ổn định */
-
 setInterval(createSparkle, 250);
 
 /* BÔNG TUYẾT RƠI */
 
 function createSnowflake() {
+    if (document.hidden) return;
     const snow = document.createElement("div");
     snow.className = "snowflake";
 
     const shapes = ["❄", "❅", "❆", "✧", "❄"];
-
-    snow.textContent =
-        shapes[Math.floor(Math.random() * shapes.length)];
+    snow.textContent = shapes[Math.floor(Math.random() * shapes.length)];
 
     snow.style.left = Math.random() * 100 + "vw";
-
-    snow.style.fontSize =
-        (10 + Math.random() * 18) + "px";
+    snow.style.fontSize = (10 + Math.random() * 18) + "px";
 
     const duration = 6 + Math.random() * 7;
-
-    snow.style.setProperty(
-        "--duration",
-        duration + "s"
-    );
-
-    /* Tạo độ lệch ngẫu nhiên để tuyết rơi tự nhiên */
-
+    snow.style.setProperty("--duration", duration + "s");
     snow.style.animationDelay = "0s";
 
     document.body.appendChild(snow);
@@ -889,13 +944,12 @@ function createSnowflake() {
     }, duration * 1000);
 }
 
-/* Cứ 250 mili giây tạo một bông tuyết */
-
 setInterval(createSnowflake, 250);
 
 /* PHÁO HOA */
 
 function launchFirework() {
+    if (document.hidden) return;
     const x = 10 + Math.random() * 80;
     const startY = window.innerHeight + 10;
     const endY = window.innerHeight * (0.15 + Math.random() * 0.35);
@@ -911,23 +965,16 @@ function launchFirework() {
     const startTime = performance.now();
 
     function moveRocket(now) {
-        const progress = Math.min(
-            (now - startTime) / travelTime,
-            1
-        );
-
+        const progress = Math.min((now - startTime) / travelTime, 1);
         const currentY = startY + (endY - startY) * progress;
+
         rocket.style.top = currentY + "px";
 
         if (progress < 1) {
             requestAnimationFrame(moveRocket);
         } else {
             rocket.remove();
-
-            explode(
-                x * window.innerWidth / 100,
-                endY
-            );
+            explode(x * window.innerWidth / 100, endY);
         }
     }
 
@@ -935,22 +982,14 @@ function launchFirework() {
 }
 
 function explode(x, y) {
-    const colors = [
-        "#ff4fa3",
-        "#ffd166",
-        "#ffffff",
-        "#a78bfa",
-        "#7df9ff"
-    ];
-
+    const colors = ["#ff4fa3", "#ffd166", "#ffffff", "#a78bfa", "#7df9ff"];
     const count = 35;
 
     for (let i = 0; i < count; i++) {
         const particle = document.createElement("div");
         particle.className = "firework-particle";
 
-        const color =
-            colors[Math.floor(Math.random() * colors.length)];
+        const color = colors[Math.floor(Math.random() * colors.length)];
 
         particle.style.background = color;
         particle.style.color = color;
@@ -961,7 +1000,6 @@ function explode(x, y) {
 
         const angle = Math.PI * 2 * i / count;
         const speed = 50 + Math.random() * 130;
-
         const dx = Math.cos(angle) * speed;
         const dy = Math.sin(angle) * speed;
 
@@ -986,7 +1024,6 @@ function explode(x, y) {
 }
 
 setInterval(launchFirework, 1500);
-
 </script>
 
 </body>
